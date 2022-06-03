@@ -22,6 +22,10 @@ def Download(file, url):
         request = requests.get(f"{url}/{sha}/{file}")
 
         folder = file.split("/", 1)[0]
+
+        if file.split("/", 2)[1] == "background":
+            makedirs(f"{sha}/{folder}/background", exist_ok=True)
+
         makedirs(f"{sha}/{folder}", exist_ok=True)
 
         f = open(f"{sha}/{file}", "wb")
