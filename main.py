@@ -8,8 +8,7 @@ from os import makedirs
 
 def Download(file, url):
 
-    fp = open(file, "r+")
-    fp = json.load(fp)
+    fp = json.load(open(file, "r+"))
 
     version = fp["version"]
     sha = fp["sha"]
