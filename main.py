@@ -24,8 +24,8 @@ def Download(file, url):
         folder = file.split("/", 1)[0]
         makedirs(f"{sha}/{folder}", exist_ok=True)
 
-        f = open(f"{sha}/{file}", "w+")
-        f.write(str(request.content))
+        f = open(f"{sha}/{file}", "wb")
+        f.write(request.content)
         f.close
 
         print(f"Downloaded {file}")
